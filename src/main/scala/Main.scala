@@ -1,4 +1,4 @@
 object Main extends App {
-  val x = 1 + 1
-  println("Hello" + x + "you")
+  val x = 3
+  println(x)
 }
