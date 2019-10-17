@@ -1,8 +1,9 @@
 object Main extends App {
   var x: Int = 1
-  def add(x: Int, y: Int): Int = x + y
+  def addThenMultiply(x: Int, y: Int)(multiplier: Int): Int =
+    (x + y) * multiplier
   println({
-    x = add(x, 5)
+    x = addThenMultiply(x, 5)(3)
     x
   })
 }
