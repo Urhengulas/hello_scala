@@ -1,7 +1,13 @@
 object Main extends App {
-  class Greeter(prefix: String, suffix: String) {
-    def greet(name: String): Unit = println(prefix + " " + name + " " + suffix)
+  object IdleFactory {
+    private var counter = 0
+    def create(): Int = {
+      counter += 1
+      counter
+    }
   }
-  val greeter = new Greeter("Hello", "<3")
-  greeter.greet("Ada Lovelace")
+  val newId: Int = IdleFactory.create()
+  println(newId)
+  val newerId: Int = IdleFactory.create()
+  println(newerId)
 }
