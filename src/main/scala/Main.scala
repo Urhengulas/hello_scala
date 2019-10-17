@@ -1,7 +1,8 @@
 object Main extends App {
+  var x: Int = 1
+  def add(x: Int, y: Int): Int = x + y
   println({
-    val x: Int = 1
-    val addOne = (x: Int) => x + 1
-    addOne(x)
+    x = add(x, 5)
+    x
   })
 }
