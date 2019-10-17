@@ -1,10 +1,7 @@
 object Main extends App {
-  var x: Int = 1
-
-  def getRandInt: Int =
-    scala.util.Random.nextInt()
-
-  println({
-    getRandInt
-  })
+  class Greeter(prefix: String, suffix: String) {
+    def greet(name: String): Unit = println(prefix + " " + name + " " + suffix)
+  }
+  val greeter = new Greeter("Hello", "<3")
+  greeter.greet("Ada Lovelace")
 }
