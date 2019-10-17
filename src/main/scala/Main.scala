@@ -1,13 +1,20 @@
-object Main extends App {
-  object IdleFactory {
-    private var counter = 0
-    def create(): Int = {
-      counter += 1
-      counter
-    }
+trait Greeter {
+  def greet(name: String): Unit =
+    println("Hello, " + name + "!")
+}
+
+class CustomizableGreeter(prefix: String, postfix: String) extends Greeter {
+  override def greet(name: String): Unit = {
+    println(prefix + name + postfix)
   }
-  val newId: Int = IdleFactory.create()
-  println(newId)
-  val newerId: Int = IdleFactory.create()
-  println(newerId)
+}
+
+object Main extends App {
+
+  class DefaultGreeter extends Greeter
+  val greeter = new DefaultGreeter()
+  greeter.greet("Sméagol")
+
+  val customGreeter = new CustomizableGreeter("Ciao, ", " :c")
+  customGreeter.greet("Bilbo")
 }
